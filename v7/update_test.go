@@ -15,7 +15,7 @@ func TestUpdateViaScript(t *testing.T) {
 	client := setupTestClient(t) // , SetTraceLog(log.New(os.Stdout, "", 0)))
 
 	update := client.Update().
-		Index("test").Type("type1").Id("1").
+		Index("test").Id("1").
 		Script(NewScript("ctx._source.tags += params.tag").Params(map[string]interface{}{"tag": "blue"}).Lang("groovy"))
 	path, params, err := update.url()
 	if err != nil {
@@ -57,7 +57,7 @@ func TestUpdateViaScriptId(t *testing.T) {
 	script := NewScriptStored("my_web_session_summariser").Params(scriptParams)
 
 	update := client.Update().
-		Index("sessions").Type("session").Id("dh3sgudg8gsrgl").
+		Index("sessions").Id("dh3sgudg8gsrgl").
 		Script(script).
 		ScriptedUpsert(true).
 		Upsert(map[string]interface{}{})
@@ -92,7 +92,7 @@ func TestUpdateViaScriptAndUpsert(t *testing.T) {
 	client := setupTestClient(t) // , SetTraceLog(log.New(os.Stdout, "", 0)))
 
 	update := client.Update().
-		Index("test").Type("type1").Id("1").
+		Index("test").Id("1").
 		Script(NewScript("ctx._source.counter += params.count").Params(map[string]interface{}{"count": 4})).
 		Upsert(map[string]interface{}{"counter": 1})
 	path, params, err := update.url()
@@ -126,7 +126,7 @@ func TestUpdateViaDoc(t *testing.T) {
 	client := setupTestClient(t) // , SetTraceLog(log.New(os.Stdout, "", 0)))
 
 	update := client.Update().
-		Index("test").Type("type1").Id("1").
+		Index("test").Id("1").
 		Doc(map[string]interface{}{"name": "new_name"}).
 		DetectNoop(true)
 	path, params, err := update.url()
@@ -160,7 +160,7 @@ func TestUpdateViaDocAndUpsert(t *testing.T) {
 	client := setupTestClient(t) // , SetTraceLog(log.New(os.Stdout, "", 0)))
 
 	update := client.Update().
-		Index("test").Type("type1").Id("1").
+		Index("test").Id("1").
 		Doc(map[string]interface{}{"name": "new_name"}).
 		DocAsUpsert(true).
 		Timeout("1s").
@@ -196,7 +196,7 @@ func TestUpdateViaDocAndUpsertAndFetchSource(t *testing.T) {
 	client := setupTestClient(t) // , SetTraceLog(log.New(os.Stdout, "", 0)))
 
 	update := client.Update().
-		Index("test").Type("type1").Id("1").
+		Index("test").Id("1").
 		Doc(map[string]interface{}{"name": "new_name"}).
 		DocAsUpsert(true).
 		Timeout("1s").

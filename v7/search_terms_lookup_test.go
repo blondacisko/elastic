@@ -10,7 +10,7 @@ import (
 )
 
 func TestTermsLookup(t *testing.T) {
-	tl := NewTermsLookup().Index("users").Type("user").Id("2").Path("followers")
+	tl := NewTermsLookup().Index("users").Id("2").Path("followers")
 	src, err := tl.Source()
 	if err != nil {
 		t.Fatal(err)

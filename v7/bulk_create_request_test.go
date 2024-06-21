@@ -62,7 +62,7 @@ func TestBulkCreateRequestSerialization(t *testing.T) {
 		},
 		// #5
 		{
-			Request: NewBulkCreateRequest().Index("index1").Type("doc").Id("1").
+			Request: NewBulkCreateRequest().Index("index1").Id("1").
 				Version(0).
 				VersionType("external").
 				Doc(tweet{User: "olivere", Created: time.Date(2014, 1, 18, 23, 59, 58, 0, time.UTC)}),

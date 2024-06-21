@@ -257,7 +257,6 @@ func (t *TestCase) setup() error {
 	tweet1 := Tweet{User: "olivere", Message: "Take Five", Retweets: 0}
 	_, err = t.client.Index().
 		Index(t.index).
-		Type("tweet").
 		Id("1").
 		BodyJson(tweet1).
 		Do(ctx)
@@ -269,7 +268,6 @@ func (t *TestCase) setup() error {
 	tweet2 := `{"user" : "olivere", "message" : "It's a Raggy Waltz"}`
 	_, err = t.client.Index().
 		Index(t.index).
-		Type("tweet").
 		Id("2").
 		BodyString(tweet2).
 		Do(ctx)
@@ -294,7 +292,6 @@ func (t *TestCase) search() {
 		// Get tweet with specified ID
 		_, err := t.client.Get().
 			Index(t.index).
-			Type("tweet").
 			Id("1").
 			Do(ctx)
 		if err != nil {

@@ -71,7 +71,7 @@ func TestBulkIndexRequestSerialization(t *testing.T) {
 		},
 		// #6
 		{
-			Request: NewBulkIndexRequest().OpType("index").Index("index1").Type("doc").Id("1").
+			Request: NewBulkIndexRequest().OpType("index").Index("index1").Id("1").
 				Version(0).
 				VersionType("external").
 				Doc(tweet{User: "olivere", Created: time.Date(2014, 1, 18, 23, 59, 58, 0, time.UTC)}),

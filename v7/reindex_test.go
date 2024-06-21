@@ -185,7 +185,7 @@ func TestReindexSourceWithQuery(t *testing.T) {
 
 func TestReindexSourceWithMultipleSourceIndicesAndTypes(t *testing.T) {
 	client := setupTestClient(t)
-	src := NewReindexSource().Index("twitter", "blog").Type("doc", "post")
+	src := NewReindexSource().Index("twitter", "blog")
 	dst := NewReindexDestination().Index("all_together")
 	out, err := client.Reindex().Source(src).Destination(dst).getBody()
 	if err != nil {

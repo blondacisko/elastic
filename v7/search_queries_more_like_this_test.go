@@ -31,7 +31,7 @@ func TestMoreLikeThisQuerySourceWithLikeAndUnlikeItems(t *testing.T) {
 	q := NewMoreLikeThisQuery()
 	q = q.LikeItems(
 		NewMoreLikeThisQueryItem().Id("1"),
-		NewMoreLikeThisQueryItem().Index(testIndexName2).Type("comment").Id("2").Routing("routing_id"),
+		NewMoreLikeThisQueryItem().Index(testIndexName2).Id("2").Routing("routing_id"),
 	)
 	q = q.IgnoreLikeItems(NewMoreLikeThisQueryItem().Id("3"))
 	src, err := q.Source()

@@ -64,7 +64,7 @@ func TestTermsQueryWithEmptyArray(t *testing.T) {
 
 func TestTermsQueryWithTermsLookup(t *testing.T) {
 	q := NewTermsQuery("user").
-		TermsLookup(NewTermsLookup().Index("users").Type("user").Id("2").Path("followers"))
+		TermsLookup(NewTermsLookup().Index("users").Id("2").Path("followers"))
 	src, err := q.Source()
 	if err != nil {
 		t.Fatal(err)
