@@ -1,4 +1,4 @@
-module github.com/blondacisko/elastic
+module github.com/blondacisko/elastic/v7
 
 go 1.17
 
