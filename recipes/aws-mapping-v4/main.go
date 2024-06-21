@@ -145,7 +145,6 @@ func main() {
 		}
 		_, err := client.Index().
 			Index(*index).
-			Type("_doc").
 			Id("1").
 			BodyJson(&tweet).
 			Refresh("true").
@@ -160,7 +159,6 @@ func main() {
 	{
 		doc, err := client.Get().
 			Index(*index).
-			Type("_doc").
 			Id("1").
 			Pretty(true).
 			Do(context.TODO())
