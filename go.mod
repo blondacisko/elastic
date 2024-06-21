@@ -1,4 +1,4 @@
-module github.com/olivere/elastic/v7
+module github.com/blondacisko/elastic
 
 go 1.17
 
